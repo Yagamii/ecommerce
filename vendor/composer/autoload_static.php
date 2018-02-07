@@ -6,8 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitdd815c2b6d1497422ae1db34ac6ecefb
 {
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/..' . '/Yagamii/php-classes/src',
+    public static $prefixLengthsPsr4 = array (
+        'Y' => 
+        array (
+            'Yagamii\\' => 8,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Yagamii\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/Yagamii/php-classes/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -41,7 +51,8 @@ class ComposerStaticInitdd815c2b6d1497422ae1db34ac6ecefb
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->fallbackDirsPsr4 = ComposerStaticInitdd815c2b6d1497422ae1db34ac6ecefb::$fallbackDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitdd815c2b6d1497422ae1db34ac6ecefb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitdd815c2b6d1497422ae1db34ac6ecefb::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitdd815c2b6d1497422ae1db34ac6ecefb::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitdd815c2b6d1497422ae1db34ac6ecefb::$classMap;
 
