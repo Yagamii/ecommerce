@@ -1,9 +1,9 @@
 {
-    "name": "hcodebr/ecommerce",
+    "name": "Yagamii/ecommerce",
     "authors": [
         {
-            "name": "Hcode Treinamentos",
-            "email": "suporte@hcode.com.br"
+            "name": "Yago Gomes",
+            "email": "yagogomes@hotmail.com"
         }
     ],
     "require": {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "": "vendor\\hcodebr\\php-classes\\src"
+            "": "vendor\\Yagamii\\php-classes\\src"
         }
     }
 }
