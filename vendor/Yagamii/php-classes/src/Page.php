@@ -14,7 +14,7 @@
 
     public function __construct($opt = array()){
 
-      $this->options = array_merge($this->$defaults, $opt);
+      $this->options = array_merge($this->defaults, $opt);
 
         $config = array(
     					"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/views/",
@@ -50,7 +50,7 @@
 
     }
 
-    public function __dustruct(){
+    public function __destruct(){
 
         $this->tpl->draw("footer");
 
