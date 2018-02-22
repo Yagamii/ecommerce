@@ -16,6 +16,8 @@ class Model {
 
 		}
 
+
+
 	}
 
 	public function __call($name, $args)
@@ -31,11 +33,14 @@ class Model {
 			{
 
 				case "get":
+					
 					return $this->values[$fieldName];
+
 				break;
 
 				case "set":
 					$this->values[$fieldName] = $args[0];
+
 				break;
 
 			}
