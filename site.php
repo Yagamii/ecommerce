@@ -3,6 +3,7 @@
 use \Yagamii\Page;
 use \Yagamii\Model\Product;
 use \Yagamii\Model\Category;
+use \Yagamii\Model\Cart;
 
 $app->get('/', function() {
 
@@ -59,6 +60,16 @@ $app->get("/products/:desurl", function($desurl){
       'product'=>$product->getValues(),
       'categories'=>$product->getCategories()
     ]);
+
+});
+
+$app->get("/cart", function(){
+
+  $cart = Cart::getFromSession();
+
+  $page = new Page();
+
+  $page->setTpl("cart");
 
 });
  ?>
