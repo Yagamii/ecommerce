@@ -9,7 +9,7 @@ use \Yagamii\Mailer;
 class Product extends Model {
 
 	protected $fields = [
-		"idproduct", "desproduct", "vlprice", "vlwidth", "vlheight", "vllength", "vlweight", "desurl", "desphoto"
+		"idproduct", "desproduct", "vlprice", "vlwidth", "vlheight", "vllength", "vlweight", "desurl", "desphoto", "nrqtd", "vltotal"
 	];
 
 	public static function listAll(){
