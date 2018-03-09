@@ -12,6 +12,7 @@ class User extends Model {
 	const SECRET = "HcodePhp7_Secret";
 	const ERROR = "UserErro";
 	const ERROR_REGISTER = "UserErrorRegister";
+	const SUCCESS = "UserSuccess";
 
 	protected $fields = [
 		"iduser", "idperson", "desperson", "desemail", "nrphone", "deslogin", "despassword", "inadmin", "dtergister"
@@ -74,6 +75,7 @@ class User extends Model {
 		}
 
 		$data = $results[0];
+
 
 		if (password_verify($password, $data["despassword"])) {
 
@@ -149,7 +151,7 @@ class User extends Model {
 		":iduser"=>$this->getiduser(),
 		":desperson"=>$this->getdesperson(),
 		":deslogin"=>$this->getdeslogin(),
-		":despassword"=>$this->User::getPasswordHash(getdespassword()),
+		":despassword"=>$this->getdespassword(),
 		":desemail"=>$this->getdesemail(),
 		":nrphone"=>$this->getnrphone(),
 		":inadmin"=>$this->getinadmin()
@@ -345,6 +347,29 @@ class User extends Model {
 		return password_hash($password, PASSWORD_DEFAULT, [
 			'cost'=>12
 		]);
+
+	}
+
+
+	public static function setSuccess($msg){
+
+		$_SESSION[User::SUCCESS] = $msg;
+
+	}
+
+	public static function getSuccess(){
+
+		$msg = (isset($_SESSION[User::SUCCESS]) && $_SESSION[User::SUCCESS]) ? $_SESSION[User::SUCCESS] : '';
+
+		User::clearSuccess();
+
+		return $msg;
+
+	}
+
+	public static function clearSuccess(){
+
+		$_SESSION[User::SUCCESS] = NULL;
 
 	}
 
