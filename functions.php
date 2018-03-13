@@ -1,6 +1,7 @@
 <?php
 
 use \Yagamii\Model\User;
+use \Yagamii\Model\Cart;
 
   function formatPrice($vlprice){
 
@@ -22,6 +23,24 @@ use \Yagamii\Model\User;
 
     return $user->getdesperson();
 
+  }
+
+  function getCartNrQtd(){
+
+    $cart = Cart::getFromSession();
+
+    $totals = $cart->getProductsTotal();
+
+    return $totals['nrqtd'];
+  }
+
+  function getCartVlSubTotal(){
+
+    $cart = Cart::getFromSession();
+
+    $totals = $cart->getProductsTotal();
+
+    return formatPrice($totals['vlprice']);
   }
 
  ?>
