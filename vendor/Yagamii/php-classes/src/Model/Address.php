@@ -9,7 +9,7 @@ class Address extends Model{
 
     const SESSION_ERROR = "AddressError";
 
-    protected $fields = ["idaddress", "idperson", "desaddress", "descomplement", "descity", "desstate", "descountry", "deszipcode", "desdistrict"];
+    protected $fields = ["idaddress", "idperson", "desaddress", "desnumber", "descomplement", "descity", "desstate", "descountry", "deszipcode", "desdistrict"];
 
     public static function getCEP($nrcep){
 
@@ -55,10 +55,11 @@ class Address extends Model{
 
       $sql = new Sql();
 
-      $results = $sql->select("CALL sp_addresses_save(:idaddress,:idperson, :desaddress, :descomplement, :descity, :desstate, :descountry, :deszipcode, :desdistrict)",[
+      $results = $sql->select("CALL sp_addresses_save(:idaddress,:idperson, :desaddress, :desnumber, :descomplement, :descity, :desstate, :descountry, :deszipcode, :desdistrict)",[
         ':idaddress'=>$this->getidaddress(),
         ':idperson'=>$this->getidperson(),
         ':desaddress'=>$this->getdesaddress(),
+        ':desnumber'=>$this->getdesnumber(),
         ':descomplement'=>$this->getdescomplement(),
         ':descity'=>$this->getdescity(),
         ':desstate'=>$this->getdesstate(),
